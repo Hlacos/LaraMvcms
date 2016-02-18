@@ -1,0 +1,34 @@
+.btn-group {
+    display: flex;
+}
+
+.file-grid {
+    padding-left: 0;
+    padding-bottom: 1px;
+    margin-bottom: 20px;
+    list-style: none;
+    overflow: hidden;
+}
+
+.file-grid li {
+    width: 12.5%;
+    float: left;
+    height: 115px;
+    padding: 10px;
+    margin: 0 -1px -1px 0;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.file-grid li .fa {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.file-grid li .file-title {
+    display: block;
+    text-align: center;
+    word-wrap: break-word;
+}
