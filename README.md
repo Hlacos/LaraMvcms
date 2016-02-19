@@ -24,6 +24,32 @@ $ bower install adminlte
 $ bower install flag-icon-css
 $ bower install responsive-filemanager#9.9.7
 
+Add commands to Kernel
+\Hlacos\LaraMvcms\Console\Commands\CreateAdminUser::class
+
+config/app.php
+
+providers:
+Hlacos\LaraMvcms\LaraMvcmsServiceProvider::class,
+
+#JeroenG\Packager\PackagerServiceProvider::class,
+Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class,
+Dimsav\Translatable\TranslatableServiceProvider::class,
+Hlacos\Attachment5\Attachment5ServiceProvider::class
+
+change
+Illuminate\Auth\AuthServiceProvider::class,->
+Kbwebs\MultiAuth\AuthServiceProvider::class,
+
+Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,->
+Kbwebs\MultiAuth\PasswordResets\PasswordResetServiceProvider::class,
+
+aliases:
+'LaravelAnalytics' => 'Spatie\LaravelAnalytics\LaravelAnalyticsFacade',
+
+#php artisan vendor:publish --provider="Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider"
+#php artisan vendor:publish --provider="Hlacos\Attachment5\Attachment5ServiceProvider"
+
 $ php artisan vendor:publish
 
 Set up user models in config/auth.php
@@ -32,11 +58,21 @@ https://github.com/Kbwebs/MultiAuth
     'admin' => array(
         'driver' => 'eloquent',
         'model' => Hlacos\LaraMvcms\Models\AdminUser::class,
-        'reminder' => array(
+        //'password' => array(
             'email' => 'lara-mvcms::emails.auth.reminder',
-        ),
+        //),
     )
 ),
+'password' => array(
+    //'email' => 'emails.auth.reminder',
+    'table' => 'password_resets',
+    'expire' => 60,
+),
+'globals' => [
+    'user', 'check'
+],
+
+php artisan migrate (remove 2014_10_12_000000_create_users_table.php, 2014_10_12_100000_create_password_resets_table.php)
 
 php artisan kbwebs:multi-auth:create-resets-table
 
@@ -46,24 +82,7 @@ Add required middlewares to $routeMiddleware array in Kernel.php
 'lara-mvcms.is-admin' => \Hlacos\LaraMvcms\Http\Middlewares\SetIsAdmin::class,
 'lara-mvcms.has-permission' => \Hlacos\LaraMvcms\Http\Middlewares\HasPermission::class,
 
-Add commands to Kernel
-\Hlacos\LaraMvcms\Console\Commands\CreateAdminUser::class
 
-config/app.php
-
-providers:
-Hlacos\LaraMvcms\LaraMvcmsServiceProvider::class,
-
-JeroenG\Packager\PackagerServiceProvider::class,
-Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class,
-Dimsav\Translatable\TranslatableServiceProvider::class,
-Hlacos\Attachment5\Attachment5ServiceProvider::class
-
-aliases:
-'LaravelAnalytics' => 'Spatie\LaravelAnalytics\LaravelAnalyticsFacade',
-
-php artisan vendor:publish --provider="Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider"
-php artisan vendor:publish --provider="Hlacos\Attachment5\Attachment5ServiceProvider"
 
 .env
 

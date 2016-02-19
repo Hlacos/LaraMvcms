@@ -13,7 +13,7 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         $permission = Permission::create([
-            'title' => 'manage-permissions',
+            'name' => 'manage-permissions',
             'gb' => [
                 'title' => 'Manage permissions',
                 'description' => 'Can manage permissions'
@@ -21,7 +21,7 @@ class PermissionSeeder extends Seeder
         ]);
 
         $permission = Permission::create([
-            'title' => 'manage-roles',
+            'name' => 'manage-roles',
             'gb' => [
                 'title' => 'Manage roles',
                 'description' => 'Can manage roles'
@@ -29,7 +29,7 @@ class PermissionSeeder extends Seeder
         ]);
 
         $permission = Permission::create([
-            'title' => 'manage-admin-users',
+            'name' => 'manage-admin-users',
             'gb' => [
                 'title' => 'Manage admin users',
                 'description' => 'Can manage admin users'
@@ -37,7 +37,7 @@ class PermissionSeeder extends Seeder
         ]);
 
         $permission = Permission::create([
-            'title' => 'manage-pages',
+            'name' => 'manage-pages',
             'gb' => [
                 'title' => 'Manage pages',
                 'description' => 'Can manage pages'
@@ -45,15 +45,7 @@ class PermissionSeeder extends Seeder
         ]);
 
         $permission = Permission::create([
-            'title' => 'manage-enties',
-            'gb' => [
-                'title' => 'Manage entries',
-                'description' => 'Can manage entries'
-            ]
-        ]);
-
-        $permission = Permission::create([
-            'title' => 'manage-galleries',
+            'name' => 'manage-galleries',
             'gb' => [
                 'title' => 'Manage galeries',
                 'description' => 'Can manage galleries'
