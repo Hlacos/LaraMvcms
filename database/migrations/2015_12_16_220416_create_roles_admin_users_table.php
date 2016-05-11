@@ -16,6 +16,7 @@ class CreateRolesAdminUsersTable extends Migration
             $table->integer('role_id')->unsigned();
             $table->integer('admin_user_id')->unsigned();
 
+            $table->unique(['role_id', 'admin_user_id']);
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->foreign('admin_user_id')->references('id')->on('admin_users')->onDelete('cascade');
         });

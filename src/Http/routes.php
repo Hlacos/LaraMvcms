@@ -57,5 +57,25 @@ Route::group(['namespace' => 'Hlacos\\LaraMvcms\\Http\\Controllers', 'prefix' =>
             ]);
             Route::resource('galleries', 'GalleryController');
         });
+
+        Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function() {
+            Route::get('posts/{postId}/delete', [
+                'as' => 'lara-mvcms.blog.posts.delete',
+                'uses' => 'PostController@delete'
+            ]);
+            Route::resource('posts', 'PostController');
+
+            Route::get('categories/{categoryId}/delete', [
+                'as' => 'lara-mvcms.blog.categories.delete',
+                'uses' => 'CategoryController@delete'
+            ]);
+            Route::resource('categories', 'CategoryController');
+
+            Route::get('tags/{tagId}/delete', [
+                'as' => 'lara-mvcms.blog.tags.delete',
+                'uses' => 'TagController@delete'
+            ]);
+            Route::resource('tags', 'TagController');
+        });
     });
 });

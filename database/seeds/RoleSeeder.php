@@ -28,5 +28,9 @@ class RoleSeeder extends Seeder
         $role->addPermissionByName('manage-pages');
         $role->addPermissionByName('manage-entries');
         $role->addPermissionByName('manage-galleries');
+
+        $role->addPermissionByName('manage-categories');
+        $role->addPermissionByName('manage-tags');
+        $role->addPermissionByName('manage-posts');
     }
 }

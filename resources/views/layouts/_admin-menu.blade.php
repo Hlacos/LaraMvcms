@@ -32,6 +32,7 @@
             </ul>
         </li>
     @endif
+
     @if (hasPermissions(['manage-pages', 'manage-galleries'], 'or'))
         <li class="treeview{{ hasRoute('lara-mvcms.content-management') ? ' active' : '' }}">
             <a href="#"><i class="fa fa-globe"></i> <span>{{ trans('lara-mvcms::menu.content-management') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -47,6 +48,35 @@
                     <li class="{{ hasRoute('lara-mvcms.content-management.galleries') ? 'active' : '' }}">
                         <a href="{{ route('lara-mvcms.content-management.galleries.index') }}">
                             <i class="fa fa-file-image-o"></i> <span>{{ trans('lara-mvcms::menu.galleries') }}</span>
+                        </a>
+                    </li>
+                @endif
+            </ul>
+        </li>
+    @endif
+
+    @if (hasPermissions(['manage-categories', 'manage-tags', 'manage-posts'], 'or'))
+        <li class="treeview{{ hasRoute('lara-mvcms.blog') ? ' active' : '' }}">
+            <a href="#"><i class="fa fa-globe"></i> <span>{{ trans('lara-mvcms::menu.blog') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+            <ul class="treeview-menu">
+                @if (hasPermission('manage-categories'))
+                    <li class="{{ hasRoute('lara-mvcms.blog.categories') ? 'active' : '' }}">
+                        <a href="{{ route('lara-mvcms.blog.categories.index') }}">
+                            <i class="fa fa-file"></i> <span>{{ trans('lara-mvcms::menu.categories') }}</span>
+                        </a>
+                    </li>
+                @endif
+                @if (hasPermission('manage-tags'))
+                    <li class="{{ hasRoute('lara-mvcms.blog.tags') ? 'active' : '' }}">
+                        <a href="{{ route('lara-mvcms.blog.tags.index') }}">
+                            <i class="fa fa-file-image-o"></i> <span>{{ trans('lara-mvcms::menu.tags') }}</span>
+                        </a>
+                    </li>
+                @endif
+                @if (hasPermission('manage-posts'))
+                    <li class="{{ hasRoute('lara-mvcms.blog.posts') ? 'active' : '' }}">
+                        <a href="{{ route('lara-mvcms.blog.posts.index') }}">
+                            <i class="fa fa-file-image-o"></i> <span>{{ trans('lara-mvcms::menu.posts') }}</span>
                         </a>
                     </li>
                 @endif

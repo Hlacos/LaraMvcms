@@ -9,6 +9,9 @@ return [
     'admin-users' => 'Admin users',
     'content-management' => 'Content',
     'pages' => 'Pages',
-    'entries' => 'Entries',
-    'galleries' => 'Galleries'
+    'galleries' => 'Galleries',
+    'blog' => 'Blog',
+    'categories' => 'Categories',
+    'tags' => 'Tags',
+    'posts' => 'Posts'
 ];
