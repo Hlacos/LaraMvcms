@@ -1,8 +1,9 @@
 @extends('lara-mvcms::layouts.application')
 
 @section('content')
-    tesztecske
-    {{ LaravelAnalytics::getVisitorsAndPageViews(7) }}
+    @if (config('larave-analitycs.siteId'))
+        {{ LaravelAnalytics::getVisitorsAndPageViews(7) }}
+    @endif
 @endsection
 
 @section('page-header')

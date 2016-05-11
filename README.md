@@ -23,6 +23,9 @@ $ cd public
 $ bower install adminlte
 $ bower install flag-icon-css
 $ bower install responsive-filemanager#9.9.7
+$ bower install font-awesome
+$ bower install Ionicons
+$ bower install jQuery
 
 Add commands to Kernel
 \Hlacos\LaraMvcms\Console\Commands\CreateAdminUser::class
