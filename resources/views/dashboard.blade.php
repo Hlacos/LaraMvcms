@@ -1,7 +1,7 @@
 @extends('lara-mvcms::layouts.application')
 
 @section('content')
-    {{ LaravelAnalytics::getVisitorsAndPageViews(7) }}
+    {{-- LaravelAnalytics::getVisitorsAndPageViews(7) --}}
 @endsection
 
 @section('page-header')

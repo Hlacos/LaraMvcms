@@ -6,7 +6,7 @@
     </li>
     @if (hasPermissions(['manage-permissions', 'manage-roles', 'manage-admin-users'], 'or'))
         <li class="treeview{{ hasRoute('lara-mvcms.administration') ? ' active' : '' }}">
-            <a href="#"><i class="fa fa-gear"></i> <span>{{ trans('lara-mvcms::menu.administration') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+            <a href="#"><i class="fa fa-gear"></i> <span>{{ trans('lara-mvcms::menu.administration') }}</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
             <ul class="treeview-menu">
                 @if (hasPermission('manage-permissions'))
                     <li class="{{ hasRoute('lara-mvcms.administration.permissions') ? 'active' : '' }}">
@@ -35,7 +35,7 @@
 
     @if (hasPermissions(['manage-pages', 'manage-galleries'], 'or'))
         <li class="treeview{{ hasRoute('lara-mvcms.content-management') ? ' active' : '' }}">
-            <a href="#"><i class="fa fa-book"></i> <span>{{ trans('lara-mvcms::menu.content-management') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+            <a href="#"><i class="fa fa-book"></i> <span>{{ trans('lara-mvcms::menu.content-management') }}</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
             <ul class="treeview-menu">
                 @if (hasPermission('manage-pages'))
                     <li class="{{ hasRoute('lara-mvcms.content-management.pages') ? 'active' : '' }}">

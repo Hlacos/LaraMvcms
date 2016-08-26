@@ -7,39 +7,12 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
-
 ## Install
 
 Add lara-mvcms package:
 
 ``` bash
 $ composer require hlacos/lara-mvcms
-```
-
-### Bower dependencies
-
-Create .bowerrc file contains:
-``` bash
-{
-  "directory": "public/bower_components/"
-}
-```
-
-Init bower
-``` bash
-bower init
-```
-
-Install dependencies
-``` bash
-bower install adminlte --save
-bower install flag-icon-css --save
-bower install responsive-filemanager#9.9.7 --save
-bower install font-awesome --save
-bower install ionicons --save
-bower install jQuery --save
 ```
 
 ### Commands
@@ -94,12 +67,6 @@ Add aliases in config/app.php to the 'aliases' array
 'LaravelAnalytics' => Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class
 ```
 
-### Vendor publish
-
-``` bash
-php artisan vendor:publish
-```
-
 ### Set up users
 
 More information available in https://github.com/Kbwebs/MultiAuth
@@ -122,7 +89,16 @@ Set up multi-auth users in config/auth.php example:
 ],
 ```
 
-### Migrations
+### Set up languages
+
+In config/app.php set the following keys to gb:
+
+* locale
+* fallback_locale
+
+In config/translatable.php set the frontend locales.
+
+### Clear Migrations
 
 Remove default users and password_resets table
 ``` bash
@@ -130,10 +106,13 @@ rm database/migrations/2014_10_12_000000_create_users_table.php
 rm database/migrations/2014_10_12_100000_create_password_resets_table.php
 ```
 
-Add Multiauth password resets table
+### Vendor publish
+
+``` bash
+php artisan vendor:publish
 ```
-php artisan kbwebs:multi-auth:create-resets-table
-```
+
+### Migrate
 
 Than migrate
 ``` bash
@@ -147,9 +126,38 @@ Add line to database Seeder (database/seeds/DatabaseSeeder.php)
 $this->call(LaraMvcmsSeeder::class);
 ```
 
+and run
+```
+php artisan db:seed
+```
+
 or use:
 ``` bash
 php artisan db:seed --class=LaraMvcmsSeeder
+```
+
+### Bower dependencies
+
+Create .bowerrc file contains:
+``` bash
+{
+  "directory": "public/bower_components/"
+}
+```
+
+Init bower
+``` bash
+bower init
+```
+
+Install dependencies
+``` bash
+bower install adminlte --save
+bower install flag-icon-css --save
+bower install responsive-filemanager#9.9.7 --save
+bower install font-awesome --save
+bower install ionicons --save
+bower install jQuery --save
 ```
 
 ### Dashboard
@@ -161,10 +169,20 @@ Set up google analitycs in the .env file
 ANALITYCS_SITE_ID=
 ANALYTICS_CLIENT_ID=
 ANALYTICS_SERVICE_EMAIL=
-
 CERTIFICATE_NAME=
 ```
-create attachments folder
+
+### Create first user
+
+``` bash
+php artisan lara-mvcms:create-admin-user
+```
+
+### Create missing folders
+
+Create public/attachments folder.
+Create public/thumbs folder.
+Create public/uploads folder.
 
 ## Change log
 

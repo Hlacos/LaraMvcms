@@ -71,7 +71,7 @@ class CreateAdminUser extends Command
             }
 
             $validator = new Validator;
-            $validator->
+
             $validator = Validator::make($data, [
                 'username' => 'required',
                 'firstname' => 'required',
