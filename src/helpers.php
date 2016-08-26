@@ -1,4 +1,5 @@
 <?php
+
 function hasPermission($permissionName)
 {
     $admin = Auth::admin()->get();
@@ -74,4 +75,12 @@ function iconByMime($mime)
     //TODO better function
 
     return 'fa-file-o';
+}
+
+function shortened($text, $length) {
+    if (strlen($text) > $length) {
+        $text = substr($text, 0, $length - 1).'&hellip;';
+    }
+
+    return $text;
 }

@@ -24,7 +24,7 @@ class AdminUserController extends LaraMvcmsController
             ->with('adminUsers', $adminUsers);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $adminUser = new AdminUser;
 
@@ -56,7 +56,7 @@ class AdminUserController extends LaraMvcmsController
         return redirect()->route('lara-mvcms.administration.admin-users.index');
     }
 
-    public function edit($userId)
+    public function edit(Request $request, $userId)
     {
         $adminUser = AdminUser::find($userId);
         if (!$adminUser) {

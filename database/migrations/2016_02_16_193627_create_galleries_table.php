@@ -12,7 +12,7 @@ class CreateGalleriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('galleries', function($table) {
+        Schema::create('galleries', function ($table) {
             $table->increments('id');
             $table->integer('parent_id')->nullable()->index();
             $table->integer('lft')->nullable()->index();

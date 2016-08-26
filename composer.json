@@ -1,9 +1,11 @@
 {
     "name": "hlacos/lara-mvcms",
-    "description": "Simple core CMS written in Laravel",
+    "description": "Simple core CMS Admin written in Laravel",
     "keywords": [
         "league",
-        "lara-mvcms"
+        "lara-mvcms",
+        "admin",
+        "cms"
     ],
     "homepage": "https://github.com/Hlacos/LaraMvcms",
     "license": "MIT",

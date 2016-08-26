@@ -22,7 +22,7 @@ class PermissionController extends LaraMvcmsController
             ->with('permissions', $permissions);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $permission = new Permission;
 
@@ -47,7 +47,7 @@ class PermissionController extends LaraMvcmsController
         return redirect()->route('lara-mvcms.administration.permissions.index');
     }
 
-    public function edit($permissionId)
+    public function edit(Request $request, $permissionId)
     {
         $permission = Permission::find($permissionId);
         if (!$permission) {

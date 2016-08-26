@@ -3,7 +3,6 @@
 namespace Hlacos\LaraMvcms\Auth;
 
 use Illuminate\Foundation\Auth\ResetsPasswords as OriginalResetsPassword;
-
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
@@ -78,7 +77,7 @@ trait ResetsPasswords
 
     protected function resetPassword($user, $password)
     {
-        $user->password = Hash::make($password);
+        $user->password = bcrypt($password);
         $user->save();
     }
 }

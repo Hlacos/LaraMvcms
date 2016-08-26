@@ -70,7 +70,7 @@ class GalleryController extends LaraMvcmsController
         return redirect()->route('lara-mvcms.content-management.galleries.index', ['parent_id' => $request->input('parent_id')]);
     }
 
-    public function edit($galleryId)
+    public function edit(Request $request, $galleryId)
     {
         $gallery = Gallery::find($galleryId);
         if (!$gallery) {

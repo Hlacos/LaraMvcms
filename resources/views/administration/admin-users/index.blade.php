@@ -5,8 +5,8 @@
         <div class="box-header">
             <div class="row">
                 <div class="col-sm-6">
-                    <form action="{{ route('lara-mvcms.administration.admin-users.index') }}" method="get" id="pager-form">
-                        <select name="size">
+                    <form action="{{ route('lara-mvcms.administration.admin-users.index') }}" method="get" id="pager-form" class="form-inline">
+                        <select name="size" class="form-control">
                             <option value="5" {{ request('size') && request('size') == "5" ? "selected" : "" }}>5</option>
                             <option value="25" {{ !request('size') || request('size') == "25" ? "selected" : "" }}>25</option>
                             <option value="50" {{ request('size') && request('size') == "50" ? "selected" : "" }}>50</option>
@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-sm-6 text-right">
                     <a class="btn btn-flat btn-primary" href="{{ route('lara-mvcms.administration.admin-users.create') }}">
-                        {{ trans('lara-mvcms::admin-users.buttons.create') }} <i class="fa fa-lock"></i>
+                        <i class="fa fa-user"></i> {{ trans('lara-mvcms::admin-users.buttons.create') }}
                     </a>
                 </div>
             </div>
@@ -41,6 +41,6 @@
         <li>
             <a href="{{ route('lara-mvcms.dashboard') }}"><i class="fa fa-dashboard"></i> {{ trans('lara-mvcms::dashboard.title') }}</a>
         </li>
-        <li class="active"><i class="fa fa-lock"></i> {{ trans('lara-mvcms::admin-users.title') }}</li>
+        <li class="active"><i class="fa fa-user"></i> {{ trans('lara-mvcms::admin-users.title') }}</li>
     </ol>
 @overwrite

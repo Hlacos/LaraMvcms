@@ -52,7 +52,7 @@ class PermissionSeeder extends Seeder
             ]
         ]);
 
-        $permission = Permission::create([
+        /*$permission = Permission::create([
             'name' => 'manage-categories',
             'gb' => [
                 'title' => 'Manage categories',
@@ -74,6 +74,6 @@ class PermissionSeeder extends Seeder
                 'title' => 'Manage posts',
                 'description' => 'Can manage posts'
             ]
-        ]);
+        ]);*/
     }
 }

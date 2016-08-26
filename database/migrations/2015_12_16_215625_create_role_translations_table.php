@@ -12,7 +12,7 @@ class CreateRoleTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('role_translations', function(Blueprint $table) {
+        Schema::create('role_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('role_id')->unsigned();
             $table->string('title');

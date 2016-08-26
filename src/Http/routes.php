@@ -18,7 +18,7 @@ Route::group(['namespace' => 'Hlacos\\LaraMvcms\\Http\\Controllers', 'prefix' =>
             return view('lara-mvcms::dashboard');
         }]);
 
-        Route::group(['namespace' => 'Administration', 'prefix' => 'administration'], function() {
+        Route::group(['namespace' => 'Administration', 'prefix' => 'administration'], function () {
             Route::get('permissions/{permissionId}/delete', [
                 'as' => 'lara-mvcms.administration.permissions.delete',
                 'uses' => 'PermissionController@delete'
@@ -38,18 +38,18 @@ Route::group(['namespace' => 'Hlacos\\LaraMvcms\\Http\\Controllers', 'prefix' =>
             Route::resource('admin-users', 'AdminUserController');
         });
 
-        Route::group(['namespace' => 'ContentManagement', 'prefix' => 'content-management'], function() {
+        Route::group(['namespace' => 'ContentManagement', 'prefix' => 'content-management'], function () {
             Route::get('pages/{pageId}/delete', [
                 'as' => 'lara-mvcms.content-management.pages.delete',
                 'uses' => 'PageController@delete'
             ]);
             Route::resource('pages', 'PageController');
 
-            Route::get('entries/{entryId}/delete', [
+            /*Route::get('entries/{entryId}/delete', [
                 'as' => 'lara-mvcms.content-management.entries.delete',
                 'uses' => 'EntryController@delete'
             ]);
-            Route::resource('entries', 'EntryController');
+            Route::resource('entries', 'EntryController');*/
 
             Route::get('galleries/{galleryId}/delete', [
                 'as' => 'lara-mvcms.content-management.galleries.delete',
@@ -58,7 +58,7 @@ Route::group(['namespace' => 'Hlacos\\LaraMvcms\\Http\\Controllers', 'prefix' =>
             Route::resource('galleries', 'GalleryController');
         });
 
-        Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function() {
+        /*Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function() {
             Route::get('posts/{postId}/delete', [
                 'as' => 'lara-mvcms.blog.posts.delete',
                 'uses' => 'PostController@delete'
@@ -76,6 +76,6 @@ Route::group(['namespace' => 'Hlacos\\LaraMvcms\\Http\\Controllers', 'prefix' =>
                 'uses' => 'TagController@delete'
             ]);
             Route::resource('tags', 'TagController');
-        });
+        });*/
     });
 });

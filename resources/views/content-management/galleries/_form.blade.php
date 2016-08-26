@@ -10,6 +10,12 @@
         <div class="box-header">
             <h3 class="box-title">{{ trans('lara-mvcms::galleries.gallery') }}</h3>
         </div>
+    </div>
+
+    <div class="box box-default">
+        <div class="box-header">
+            <h3 class="box-title">{{ trans('lara-mvcms::galleries.gallery') }}</h3>
+        </div>
         <div class="box-body">
             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                 <label class="col-sm-2 control-label" for="title">{{ trans('lara-mvcms::models/gallery.title') }}</label>

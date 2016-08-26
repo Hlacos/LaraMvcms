@@ -12,7 +12,7 @@ class CreatePageTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('page_translations', function(Blueprint $table) {
+        Schema::create('page_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('page_id')->unsigned();
             $table->string('name');

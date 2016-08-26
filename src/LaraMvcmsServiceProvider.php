@@ -22,7 +22,7 @@ class LaraMvcmsServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'lara-mvcms');
         $this->publishes([
-            __DIR__.'/../resources/views/errors/' => base_path('resources/views/errors')
+            __DIR__.'/../resources/views/' => base_path('resources/views/vendor/lara-mvcms')
         ], 'views');
 
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'lara-mvcms');
@@ -41,12 +41,6 @@ class LaraMvcmsServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../assets' => public_path('vendor/lara-mvcms'),
         ], 'public');
-
-        view()->composer(['lara-mvcms::layouts.application'], function ($view) {
-            $sessionId = Session::getId();
-
-            return $view->with('sessionId', $sessionId);
-        });
     }
 
     /**
@@ -56,6 +50,12 @@ class LaraMvcmsServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        view()->composer(
+            ['lara-mvcms::layouts.application'], 'Hlacos\LaraMvcms\Http\ViewComposers\ApplicationLayoutComposer'
+        );
 
+        view()->composer(
+            ['lara-mvcms::layouts._admin-menu'], 'Hlacos\LaraMvcms\Http\ViewComposers\AdminMenuComposer'
+        );
     }
 }

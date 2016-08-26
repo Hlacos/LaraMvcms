@@ -22,7 +22,7 @@ class PageController extends LaraMvcmsController
             ->with('pages', $pages);
         }
 
-    public function create()
+    public function create(Request $request)
     {
         $page = new Page;
 
@@ -49,7 +49,7 @@ class PageController extends LaraMvcmsController
         return redirect()->route('lara-mvcms.content-management.pages.index');
     }
 
-    public function edit($pageId)
+    public function edit(Request $request, $pageId)
     {
         $page = Page::find($pageId);
         if (!$page) {

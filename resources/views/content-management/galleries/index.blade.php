@@ -5,10 +5,10 @@
         <div class="box-header">
             <div class="row">
                 <div class="col-sm-1">
-                    <form action="{{ route('lara-mvcms.content-management.galleries.index', ['parent_id' => $parentId]) }}" method="get" id="pager-form">
+                    <form action="{{ route('lara-mvcms.content-management.galleries.index', ['parent_id' => $parentId]) }}" method="get" id="pager-form" class="form-inline">
                         <input type="hidden" name="grid" value="{{ $gridView ? 1 : 0 }}">
 
-                        <select name="size">
+                        <select name="size" class="form-control">
                             <option value="5" {{ request('size') && request('size') == "5" ? "selected" : "" }}>5</option>
                             <option value="25" {{ !request('size') || request('size') == "25" ? "selected" : "" }}>25</option>
                             <option value="50" {{ request('size') && request('size') == "50" ? "selected" : "" }}>50</option>
@@ -28,10 +28,10 @@
                 <div class="col-sm-6 text-right">
                     <div class="btn-group pull-right">
                         <a class="btn btn-flat btn-primary right" href="{{ route('lara-mvcms.content-management.galleries.create', ['parent_id' => $parentId, 'is_directory' => 0]) }}">
-                            {{ trans('lara-mvcms::galleries.buttons.create-file') }} <i class="fa fa-file-image-o"></i>
+                            <i class="fa fa-file-image-o"></i> {{ trans('lara-mvcms::galleries.buttons.create-file') }}
                         </a>
                         <a class="btn btn-flat btn-info right" href="{{ route('lara-mvcms.content-management.galleries.create', ['parent_id' => $parentId, 'is_directory' => 1]) }}">
-                            {{ trans('lara-mvcms::galleries.buttons.create-directory') }} <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder"></i> {{ trans('lara-mvcms::galleries.buttons.create-directory') }}
                         </a>
                     </div>
                 </div>
@@ -68,6 +68,6 @@
         <li>
             <a href="{{ route('lara-mvcms.dashboard') }}"><i class="fa fa-dashboard"></i> {{ trans('lara-mvcms::dashboard.title') }}</a>
         </li>
-        <li class="active"><i class="fa fa-file"></i> {{ trans('lara-mvcms::galleries.title') }}</li>
+        <li class="active"><i class="fa fa-file-image-o"></i> {{ trans('lara-mvcms::galleries.title') }}</li>
     </ol>
 @overwrite

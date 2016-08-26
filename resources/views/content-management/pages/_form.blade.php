@@ -8,6 +8,12 @@
         <div class="box-header">
             <h3 class="box-title">{{ trans('lara-mvcms::pages.page') }}</h3>
         </div>
+    </div>
+
+    <div class="box box-default">
+        <div class="box-header">
+            <h3 class="box-title">{{ trans('lara-mvcms::pages.page') }}</h3>
+        </div>
         <div class="box-body">
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 <label class="col-sm-2 control-label" for="name">{{ trans('lara-mvcms::models/page.name') }}</label>

@@ -10,7 +10,6 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 //use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Kbwebs\MultiAuth\PasswordResets\CanResetPassword;
 use Kbwebs\MultiAuth\PasswordResets\Contracts\CanResetPassword as CanResetPasswordContract;
-
 use Hlacos\LaraMvcms\Models\Role;
 
 class AdminUser extends Model implements AuthenticatableContract, CanResetPasswordContract
@@ -58,6 +57,11 @@ class AdminUser extends Model implements AuthenticatableContract, CanResetPasswo
     public function getNameAttribute()
     {
         return $this->firstname." ".$this->lastname;
+    }
+
+    public function getReadableRolesAttribute()
+    {
+        return implode(',', $this->roles()->lists('name')->toArray());
     }
 
     public function hasRole($role)

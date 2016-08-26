@@ -12,7 +12,7 @@ class CreatePermissionTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('permission_translations', function($table) {
+        Schema::create('permission_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('permission_id')->unsigned();
             $table->string('title');

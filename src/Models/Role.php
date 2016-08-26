@@ -31,7 +31,7 @@ class Role extends Model
 
     public function scopePermit($query, $permission)
     {
-        return $query->whereHas('permissions', function($q) use ($permission) {
+        return $query->whereHas('permissions', function ($q) use ($permission) {
             $q->where('id', $permission->id);
         });
     }

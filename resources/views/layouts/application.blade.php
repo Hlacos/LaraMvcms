@@ -11,6 +11,7 @@
         <link href="{{ asset('/bower_components/AdminLTE/dist/css/AdminLTE.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/bower_components/AdminLTE/plugins/iCheck/square/blue.css')}}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('/bower_components/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet" type="text/css" >
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,7 +27,7 @@
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="index2.html" class="logo">{{ Config::get('lara-mvcms.site-name') }}</a>
+            <a href="{{ route('lara-mvcms.dashboard') }}" class="logo">{{ Config::get('lara-mvcms.site-name') }}</a>
 
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -142,12 +143,12 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="{{ asset("/bower_components/AdminLTE/dist/img/user2-160x160.jpg") }}" class="img-circle" alt="{{ Auth::admin()->get()->name }} Image" />
+                        <img src="{{ asset("/bower_components/AdminLTE/dist/img/user2-160x160.jpg") }}" class="img-circle" alt="{{ $adminUser->name }} Image" />
                     </div>
                     <div class="pull-left info">
-                        <p>{{ Auth::admin()->get()->name }}</p>
+                        <p>{{ $adminUser->name }}</p>
                         <!-- Status -->
-                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        <a href="#">{!! shortened($adminUser->readableRoles, 27) !!}</a>
                     </div>
                 </div>
 

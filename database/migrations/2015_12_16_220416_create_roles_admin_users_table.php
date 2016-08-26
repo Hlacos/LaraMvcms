@@ -12,7 +12,7 @@ class CreateRolesAdminUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles_users', function($table) {
+        Schema::create('roles_users', function (Blueprint $table) {
             $table->integer('role_id')->unsigned();
             $table->integer('admin_user_id')->unsigned();
 

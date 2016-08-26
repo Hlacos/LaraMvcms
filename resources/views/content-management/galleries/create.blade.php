@@ -16,7 +16,7 @@
             <a href="{{ route('lara-mvcms.dashboard') }}"><i class="fa fa-dashboard"></i> {{ trans('lara-mvcms::dashboard.title') }}</a>
         </li>
         <li>
-            <a href="{{ route('lara-mvcms.content-management.galleries.index') }}"><i class="fa fa-folder"></i> {{ trans('lara-mvcms::galleries.title') }}</a>
+            <a href="{{ route('lara-mvcms.content-management.galleries.index') }}"><i class="fa fa-file-image-o"></i> {{ trans('lara-mvcms::galleries.title') }}</a>
         </li>
         <li class="active"> {{ trans('lara-mvcms::galleries.create-title') }}</li>
     </ol>

@@ -6,7 +6,6 @@ use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
 use Hlacos\LaraMvcms\Models\AdminUser;
 use Hlacos\LaraMvcms\Models\Role;
 
@@ -25,8 +24,6 @@ class CreateAdminUser extends Command
      * @var string
      */
     protected $description = 'Creates an active user with administration roles.';
-
-    private $validator;
 
     /**
      * Execute the console command.
@@ -73,6 +70,8 @@ class CreateAdminUser extends Command
                 $data["password_confirmation"] = $this->secret("Password again: ");
             }
 
+            $validator = new Validator;
+            $validator->
             $validator = Validator::make($data, [
                 'username' => 'required',
                 'firstname' => 'required',
@@ -88,7 +87,7 @@ class CreateAdminUser extends Command
         $user->lastname = $data["lastname"];
         $user->email = $data["email"];
         $user->is_active = true;
-        $user->password = Hash::make($data["password"]);
+        $user->password = bcrypt($data["password"]);
         $user->save();
 
         $user->addRoleByName('administrator');

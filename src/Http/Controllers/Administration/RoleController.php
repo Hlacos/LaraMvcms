@@ -23,7 +23,7 @@ class RoleController extends LaraMvcmsController
             ->with('roles', $roles);
         }
 
-    public function create()
+    public function create(Request $request)
     {
         $role = new Role;
 
@@ -52,7 +52,7 @@ class RoleController extends LaraMvcmsController
         return redirect()->route('lara-mvcms.administration.roles.index');
     }
 
-    public function edit($roleId)
+    public function edit(Request $request, $roleId)
     {
         $role = Role::find($roleId);
         if (!$role) {

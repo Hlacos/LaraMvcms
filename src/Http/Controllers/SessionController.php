@@ -15,7 +15,7 @@ class SessionController extends LaraMvcmsController
         $this->middleware('lara-mvcms.guest', ['only' => 'create', 'store']);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         return view('lara-mvcms::sessions.create');
     }
@@ -44,7 +44,7 @@ class SessionController extends LaraMvcmsController
         return redirect()->back()->withErrors($errors)->withInput($request->except('password'));
     }
 
-    public function destroy()
+    public function destroy(Request $request)
     {
         Auth::admin()->logout();
         return redirect()->route('lara-mvcms.sessions.create');
