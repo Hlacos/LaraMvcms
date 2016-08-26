@@ -24,7 +24,7 @@
         "kbwebs/multiauth": "~1.0",
         "spatie/laravel-analytics": "^1.2",
         "dimsav/laravel-translatable": "^5.4",
-        "hlacos/attachment5": "dev-master",
+        "hlacos/attachment5": "0.1.*",
         "baum/baum": "~1.1"
     },
     "require-dev": {
