@@ -1,8 +1,10 @@
 # Changelog
 
-All Notable changes to `lara-mvcms` will be documented in this file
+All Notable changes to `lara-mvcms` package will be documented in this file.
 
-## NEXT - YYYY-MM-DD
+## 0.1.0 - 2016-08-26
+
+The first version of the core CMS.
 
 ### Added
 - Nothing
