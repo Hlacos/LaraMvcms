@@ -1,6 +1,7 @@
 {
     "name": "hlacos/lara-mvcms",
     "description": "Simple core CMS Admin written in Laravel",
+    "version": "0.1.0",
     "keywords": [
         "league",
         "lara-mvcms",
@@ -45,7 +46,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1-stable"
+            "dev-master": "0.1-dev"
         }
     }
 }
